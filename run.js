@@ -18,19 +18,19 @@ var servers = require('./servers');
         if (msg) {
           if (udp_broadcaster) {
             udp_broadcaster.send(msg, 0, msg.length, UDP_PORT, UDP_DEST);
+          } else {
+            udp_broadcaster = dgram.createSocket('udp4');
+            udp_broadcaster.bind(UDP_PORT, s.ip);
+            udp_broadcaster.on('listening', function () {
+              udp_broadcaster.setBroadcast(true);
+              udp_broadcaster.send(msg, 0, msg.length, UDP_PORT, UDP_DEST);
+            });
+            udp_broadcaster.on("error", function (err) {
+              logging.error("Cannot bind broadcaster");
+            });
           }
-          udp_broadcaster = dgram.createSocket('udp4');
-          udp_broadcaster.bind(UDP_PORT, s.ip);
-          udp_broadcaster.on('listening', function () {
-            udp_broadcaster.setBroadcast(true);
-            udp_broadcaster.send(msg, 0, msg.length, UDP_PORT, UDP_DEST);
-          });
-          udp_broadcaster.on("error", function (err) {
-            logging.error("Cannot bind broadcaster");
-          });
         }
-      }
-      );
+      });
       setTimeout(next, BROADCAST_DELAY_MS);
     }
   )
