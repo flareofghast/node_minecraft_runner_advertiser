@@ -1,0 +1,25 @@
+{
+  "name": "node_minecraft_runner_advertiser",
+  "version": "1.0.0",
+  "description": "basic Node java Minecraft Server runner and Minecraft server advertiser to the network",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flareofghast/node_minecraft_runner_advertiser.git"
+  },
+  "author": "Peter Salzmann <petersalzmann@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/flareofghast/node_minecraft_runner_advertiser/issues"
+  },
+  "homepage": "https://github.com/flareofghast/node_minecraft_runner_advertiser#readme",
+  "dependencies": {
+    "async": "^3.2.0",
+    "dgram": "^1.0.1",
+    "ip": "^1.1.5",
+    "winston": "^3.2.1"
+  }
+}
