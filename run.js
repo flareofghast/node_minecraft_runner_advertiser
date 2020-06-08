@@ -3,6 +3,9 @@ var async = require('async');
 var logging = require('winston');
 var child_process = require('child_process');
 var servers = require('./servers');
+var serverVersion = '1.16.pre2';
+var xms = '8192M';
+var xmx ='8192M';
 
 (function () {
   //thanks to https://github.com/flareofghast/node-advertiser/blob/master/advert.js
@@ -36,7 +39,7 @@ var servers = require('./servers');
   )
 })();
 
-var proc = child_process.spawn('java.exe', ['-Xmx4096M', '-Xms4096M', '-jar', "C:\\Minecraft_Server\\minecraft_server.1.15.2.jar"], { cwd: 'C:\\Minecraft_Server' });
+var proc = child_process.spawn('java.exe', [`-Xmx${xmx}`, `-Xms${xms}`, '-jar', `C:\\Minecraft Server\\Servers\\${serverVersion}\\server.jar`], { cwd: `C:\\Minecraft Server\\Servers\\${serverVersion}` });
 
 // proc.stdout.pipe(process.stdout);
 proc.on('error', err => {
