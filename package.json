@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/flareofghast/node_minecraft_runner_advertiser#readme",
   "dependencies": {
-    "async": "^3.2.0",
+    "async": "^3.2.2",
     "dgram": "^1.0.1",
     "ip": "^1.1.5",
     "winston": "^3.2.1"
